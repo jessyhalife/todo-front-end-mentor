@@ -37,26 +37,28 @@ const List: React.FC<Props> = ({ items, toggleCompleted, clearCompleted }) => {
   }, [items]);
 
   return (
-    <section
-      className={`content__box todo__list ${option === "dark" && "dark"}`}
-    >
-      {filteredData.map((item) => (
-        <Item key={item.id} item={item} toggleCompleted={toggleCompleted} />
-      ))}
-      {filteredData.length === 0 && (
-        <div className={`todo__list__item ${option === "dark" && "dark"}`}>
-          <p>No todo´s found :o</p>
-          <br/>
-          <small>Maybe you can try adding some new tasks!</small>
-        </div>
-      )}
+    <>
+      <section
+        className={`content__box todo__list ${option === "dark" && "dark"}`}
+      >
+        {filteredData.map((item) => (
+          <Item key={item.id} item={item} toggleCompleted={toggleCompleted} />
+        ))}
+        {filteredData.length === 0 && (
+          <div className={`todo__list__item ${option === "dark" && "dark"}`}>
+            <p>No todo´s found :o</p>
+            <br />
+            <small>Maybe you can try adding some new tasks!</small>
+          </div>
+        )}
+      </section>
       <Footer
         count={items.filter((x) => !x.completed).length}
         changeFilter={handleFilter}
         clearCompleted={clearCompleted}
         selected={filter}
       ></Footer>
-    </section>
+    </>
   );
 };
 

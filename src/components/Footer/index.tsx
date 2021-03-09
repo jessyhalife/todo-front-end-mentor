@@ -16,7 +16,7 @@ const Footer: React.FC<Props> = ({
 }) => {
   const { option } = useContext(Context);
   return (
-    <div className={`todo__list__footer ${option === "dark" && "dark"}`}>
+    <div className={`content__box todo__list__footer ${option === "dark" && "dark"}`}>
       <p>{count} items left</p>
       <ul className="todo__list__selector">
         <li
